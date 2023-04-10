@@ -6,16 +6,17 @@ import os
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.openapi.utils import get_openapi
+from fastapi import FastAPI
 
-from local_server.config import Settings
- # load in settings right away before other modules to prevent circular dependency
-settings = Settings()
+from local_server.config import settings
 
-from . import create_app
+# from . import create_app
 from local_server.routers import echo, solana
 from local_server.dependencies import connect_solana
 
-app = create_app()
+app = FastAPI()
+app.include_router(echo.router)
+app.include_router(solana.router)
 
 
 

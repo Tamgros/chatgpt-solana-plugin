@@ -50,3 +50,6 @@ elif dev_env == 'testing':
     Settings = TestingConfig
 else:
     raise ValueError(f"Invalid DEV_ENV value: {dev_env}")
+
+
+settings = Settings()
