@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
-from local_server.config import settings
-# from local_server.dependencies import solana_client
+from local_server.dependencies import solana_client
+
+# solana_client = connect_solana()
 
 router = APIRouter(
     prefix="/solana",
@@ -16,7 +17,7 @@ async def get_latest_blockhash():
 
     The Solana blockchain uses latest blockhash to prevent duplicate transcations. 
     """
-    async with settings.solana_client as client:
+    async with solana_client as client:
         recent_blockhash = await client.get_latest_blockhash()
         print(recent_blockhash.value.blockhash)
         return jsonify({"latest_blockhash": f'{recent_blockhash.value.blockhash}'})

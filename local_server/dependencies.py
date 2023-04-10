@@ -3,7 +3,7 @@ from solana.rpc.async_api import AsyncClient
 
 import os
 
-from local_server.main import settings
+from local_server.config import settings
 
 def connect_solana(): 
     network_rpc = settings.SOLANA_RPC
@@ -11,3 +11,4 @@ def connect_solana():
     return solana_client
 
 
+solana_client = connect_solana()

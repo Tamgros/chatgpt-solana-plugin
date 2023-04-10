@@ -11,8 +11,10 @@ from fastapi import FastAPI
 from local_server.config import settings
 
 # from . import create_app
+from local_server.dependencies import solana_client
+
+
 from local_server.routers import echo, solana
-from local_server.dependencies import connect_solana
 
 app = FastAPI()
 app.include_router(echo.router)
@@ -20,7 +22,7 @@ app.include_router(solana.router)
 
 
 
-solana_client = connect_solana()
+
 
 PORT = settings.PORT
 
