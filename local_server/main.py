@@ -1,11 +1,11 @@
 from . import create_app
+from local_server.routers import echo
 from functools import lru_cache
 
 import uvicorn
 
 from .config import Settings
 from fastapi.middleware.cors import CORSMiddleware
-# from starlette.responses import FileResponse
 from fastapi.responses import FileResponse
 from fastapi.openapi.utils import get_openapi
 import os
@@ -32,7 +32,7 @@ def read_root():
 
 @app.route("/.well-known/ai-plugin.json")
 async def get_manifest(request):
-    file_path = "./local-server/ai-plugin.json"
+    file_path = "./local_server/ai-plugin.json"
     return FileResponse(file_path, media_type="text/json")
 
 
@@ -45,7 +45,7 @@ async def get_logo(request):
 
 @app.route("/.well-known/openapi.yaml")
 async def get_openapi_endpoint(request):
-    file_path = "./local-server/openapi.yaml"
+    file_path = "./local_server/openapi.yaml"
     return FileResponse(file_path, media_type="text/json")
 
 
@@ -73,4 +73,10 @@ def custom_openapi():
 app.openapi = custom_openapi
 
 def start():
-    uvicorn.run("local-server.main:app", host="localhost", port=PORT, reload=True)
+    uvicorn.run(
+        "local_server.main:app", 
+        # host="localhost", 
+        port=PORT, 
+        reload=True,
+        server_header=False
+    )
