@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "chatgpt-solana-plugin"
+version = "0.1.0"
+description = ""
+authors = ["tamgros <sorg.matthew@gmail.com>"]
+readme = "README.md"
+packages = [{include = "chatgpt_solana_plugin"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+solana = "^0.29.2"
+asyncio = "^3.4.3"
+fastapi = "^0.95.0"
+pydantic = {extras = ["dotenv"], version = "^1.10.7"}
+uvicorn = "^0.21.1"
+starlette = "^0.26.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+start = "server.main:start"
+dev = "local-server.main:start"
