@@ -2,6 +2,7 @@ from pydantic import BaseSettings
 from dotenv import load_dotenv
 # from pathlib import Path
 import os
+import json
 
 # load_dotenv(dotenv_path=Path("~/local-server/.env"))
 load_dotenv()
@@ -53,3 +54,31 @@ else:
 
 
 settings = Settings()
+
+
+ai_plugin_content = {
+    "schema_version": "v0.1.1",
+    "name_for_model": "Solana transcaction",
+    "name_for_human": "Solana Plugin",
+    "description_for_model": "Plugin querying from and sending transactions to the Solana blockchain. Use it when a user wants to create or send Tokens",
+    "description_for_human": "Search through your documents.",
+    "auth": {
+        "type": "none"
+      },
+      "api": {
+        "type": "openapi",
+        "url": f"http://localhost:{settings.PORT}/.well-known/openapi.yaml",
+        "is_user_authenticated": "false"
+      },
+      "logo_url": f"http://localhost:{settings.PORT}/.well-known/logo.png",
+      "contact_email": "sorg.matthew@gmail.com", 
+      "legal_info_url": "sorg.matthew@gamil.com"
+}
+
+ai_plugin_json = json.dumps(ai_plugin_content)
+print(ai_plugin_json)
+with open('./.well-known/ai-plugin.json', "w") as plugin_file:  
+    # updated = ai_plugin_content.replace("settings.PORT", str(settings.PORT))
+    # plugin_file.write())
+    # print(updated)
+    json.dump(ai_plugin_content, plugin_file)

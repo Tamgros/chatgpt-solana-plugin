@@ -1,18 +1,1 @@
-{
-    "schema_version": "v0.1.0",
-    "name_for_model": "Solana transcaction",
-    "name_for_human": "Solana Plugin",
-    "description_for_model": "Plugin querying from and sending transactions to the Solana blockchain. Use it when a user wants to create or send Tokens",
-    "description_for_human": "Search through your documents.",
-    "auth": {
-        "type": "none"
-      },
-      "api": {
-        "type": "openapi",
-        "url": "http://localhost:3000/.well-known/openapi.yaml",
-        "is_user_authenticated": false
-      },
-      "logo_url": "http://localhost:3000/.well-known/logo.png",
-      "contact_email": "hello@contact.com", 
-      "legal_info_url": "hello@legal.com"
-    }
+{"schema_version": "v0.1.1", "name_for_model": "Solana transcaction", "name_for_human": "Solana Plugin", "description_for_model": "Plugin querying from and sending transactions to the Solana blockchain. Use it when a user wants to create or send Tokens", "description_for_human": "Search through your documents.", "auth": {"type": "none"}, "api": {"type": "openapi", "url": "http://localhost:3333/.well-known/openapi.yaml", "is_user_authenticated": "false"}, "logo_url": "http://localhost:3333/.well-known/logo.png", "contact_email": "sorg.matthew@gmail.com", "legal_info_url": "sorg.matthew@gamil.com"}
