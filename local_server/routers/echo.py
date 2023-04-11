@@ -6,9 +6,13 @@ router = APIRouter()
 class Echo(BaseModel):
     hello: str | None = None
 
+class EchoOut(BaseModel):
+    input: str | None
+    extra: bool | None = True
+
 
 @router.post("/echo")
-async def echo(data: Echo):
+async def echo(data: Echo) -> EchoOut:
     """_summary_
 
     Returns:

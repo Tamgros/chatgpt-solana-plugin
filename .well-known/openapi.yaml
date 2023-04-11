@@ -1,0 +1,178 @@
+components:
+  schemas:
+    AccountInfo:
+      properties:
+        data:
+          title: Data
+        executable:
+          title: Executable
+          type: boolean
+        lamports:
+          title: Lamports
+          type: integer
+        owner:
+          title: Owner
+        rentEpoch:
+          title: Rentepoch
+          type: integer
+      title: AccountInfo
+      type: object
+    Echo:
+      properties:
+        hello:
+          title: Hello
+          type: string
+      title: Echo
+      type: object
+    EchoOut:
+      properties:
+        extra:
+          default: true
+          title: Extra
+          type: boolean
+        input:
+          title: Input
+          type: string
+      title: EchoOut
+      type: object
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          title: Detail
+          type: array
+      title: HTTPValidationError
+      type: object
+    LatestBlockhash:
+      properties:
+        latest_blockhash:
+          title: Latest Blockhash
+          type: string
+      required:
+      - latest_blockhash
+      title: LatestBlockhash
+      type: object
+    PublicKey:
+      properties:
+        pk:
+          title: Pk
+          type: string
+      required:
+      - pk
+      title: PublicKey
+      type: object
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          title: Location
+          type: array
+        msg:
+          title: Message
+          type: string
+        type:
+          title: Error Type
+          type: string
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+      type: object
+info:
+  description: This is a very custom OpenAPI schema
+  title: Custom title
+  version: 2.5.0
+  x-logo:
+    url: https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png
+openapi: 3.0.2
+paths:
+  /:
+    get:
+      operationId: read_root__get
+      responses:
+        '200':
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      summary: Read Root
+  /echo:
+    post:
+      description: "_summary_\n\nReturns:\n    _type_: _description_"
+      operationId: echo_echo_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Echo'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EchoOut'
+          description: Successful Response
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Echo
+  /solana/get_account_info:
+    post:
+      description: 'Gets the latest account info for a provided public key
+
+
+        The Solana blockchain stores data into accounts associated with cryptographic
+        public keys'
+      operationId: get_accoung_info_solana_get_account_info_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublicKey'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountInfo'
+          description: Successful Response
+        '404':
+          description: Not found
+        '422':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      summary: Get Accoung Info
+      tags:
+      - solana
+  /solana/get_latest_blockhash:
+    get:
+      description: 'Gets the latest blockhash
+
+
+        The Solana blockchain uses latest blockhash to prevent duplicate transcations.'
+      operationId: get_latest_blockhash_solana_get_latest_blockhash_get
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LatestBlockhash'
+          description: Successful Response
+        '404':
+          description: Not found
+      summary: Get Latest Blockhash
+      tags:
+      - solana
