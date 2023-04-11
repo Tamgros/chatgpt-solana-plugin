@@ -2,6 +2,7 @@
 from functools import lru_cache
 import uvicorn
 import os
+import yaml
 
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -63,6 +64,13 @@ async def get_openapi_endpoint(request):
     return FileResponse(file_path, media_type="text/json")
 
 
+favicon_path = '/saluting-face_1fae1.ico'
+
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse(favicon_path)
+
+
 @lru_cache()
 def get_settings():
     return Settings()
@@ -85,6 +93,9 @@ def custom_openapi():
 
 
 app.openapi = custom_openapi
+
+with open(".well-known/openapi.yaml", 'w') as openapi_yaml: 
+    openapi_yaml.write(yaml.dump(app.openapi()))
 
 def start():
     uvicorn.run(
