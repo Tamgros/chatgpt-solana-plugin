@@ -1,12 +1,16 @@
 ## to setup
 poetry install
 
+Add
+
 
 ## to start server
-poetry run devß
+poetry run dev
 
 ## To end process
-pkill -9 Python
+ps -ef|grep python
+
+pkill -9 <pid>
 
 ## Reference to add my own plugin
 ```
