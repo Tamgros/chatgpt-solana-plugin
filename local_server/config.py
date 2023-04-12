@@ -76,7 +76,7 @@ ai_plugin_content = {
 }
 
 ai_plugin_json = json.dumps(ai_plugin_content)
-print(ai_plugin_json)
+
 with open('./.well-known/ai-plugin.json', "w+") as plugin_file:  
 
     json.dump(ai_plugin_content, plugin_file, indent=4)

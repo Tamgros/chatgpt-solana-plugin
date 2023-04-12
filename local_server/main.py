@@ -26,6 +26,7 @@ app.include_router(solana.router)
 
 
 PORT = settings.PORT
+print("PORT: " + str(PORT))
 
 origins = [
     f"http://localhost:{PORT}",
