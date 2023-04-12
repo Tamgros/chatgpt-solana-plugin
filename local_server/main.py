@@ -47,20 +47,21 @@ def read_root():
 
 @app.route("/.well-known/ai-plugin.json")
 async def get_manifest(request):
-    file_path = "./local_server/ai-plugin.json"
+    file_path = "./.well-known/ai-plugin.json"
+    print('well known ai-plugin')
     return FileResponse(file_path, media_type="text/json")
 
 
 @app.route("/.well-known/logo.png")
 async def get_logo(request):
-    file_path = ".well-known/solana-sol-logo.png"
+    file_path = "./.well-known/solana-sol-logo.png"
 
     return FileResponse(file_path, media_type="image/png")
 
 
 @app.route("/.well-known/openapi.yaml")
 async def get_openapi_endpoint(request):
-    file_path = "./local_server/openapi.yaml"
+    file_path = "./.well-known/openapi.yaml"
     return FileResponse(file_path, media_type="text/json")
 
 

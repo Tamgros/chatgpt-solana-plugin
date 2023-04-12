@@ -57,7 +57,7 @@ settings = Settings()
 
 
 ai_plugin_content = {
-    "schema_version": "v0.1.1",
+    "schema_version": "v1",
     "name_for_model": "Solana transcaction",
     "name_for_human": "Solana Plugin",
     "description_for_model": "Plugin querying from and sending transactions to the Solana blockchain. Use it when a user wants to create or send Tokens",
@@ -77,8 +77,11 @@ ai_plugin_content = {
 
 ai_plugin_json = json.dumps(ai_plugin_content)
 print(ai_plugin_json)
-with open('./.well-known/ai-plugin.json', "w") as plugin_file:  
+with open('./.well-known/ai-plugin.json', "w+") as plugin_file:  
     # updated = ai_plugin_content.replace("settings.PORT", str(settings.PORT))
     # plugin_file.write())
     # print(updated)
-    json.dump(ai_plugin_content, plugin_file)
+    # data = json.load(plugin_file)
+    # ai_plugin_content['api']['url'] = ''
+    json.dump(ai_plugin_content, plugin_file, indent=4)
+    # plugin_file.write(json.dumps(ai_plugin_content))
