@@ -78,10 +78,5 @@ ai_plugin_content = {
 ai_plugin_json = json.dumps(ai_plugin_content)
 print(ai_plugin_json)
 with open('./.well-known/ai-plugin.json', "w+") as plugin_file:  
-    # updated = ai_plugin_content.replace("settings.PORT", str(settings.PORT))
-    # plugin_file.write())
-    # print(updated)
-    # data = json.load(plugin_file)
-    # ai_plugin_content['api']['url'] = ''
+
     json.dump(ai_plugin_content, plugin_file, indent=4)
-    # plugin_file.write(json.dumps(ai_plugin_content))
