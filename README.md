@@ -1,8 +1,6 @@
 ## to setup
 poetry install
 
-Add
-
 
 ## to start server
 poetry run dev
