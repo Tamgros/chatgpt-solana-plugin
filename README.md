@@ -17,3 +17,6 @@ tool = AIPluginTool.from_plugin_url('')
 ```
 
 https://towardsdatascience.com/the-easiest-way-to-interact-with-language-models-4da158cfb5c5
+
+## Noah's JS implementation
+https://github.com/ngundotra/solana-gpt-plugin
