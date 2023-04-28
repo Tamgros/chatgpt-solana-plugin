@@ -20,3 +20,7 @@ https://towardsdatascience.com/the-easiest-way-to-interact-with-language-models-
 
 ## Noah's JS implementation
 https://github.com/ngundotra/solana-gpt-plugin
+
+## Got approved!
+plugin link
+https://chat.openai.com/?model=text-davinci-002-plugins
