@@ -7,8 +7,12 @@ poetry run dev
 
 ## To end process
 ps -ef|grep python
+or
+sudo lsof -i:333
+
 
 pkill -9 <pid>
+kill -9 <pid>
 
 ## Reference to add my own plugin
 ```
@@ -24,3 +28,6 @@ https://github.com/ngundotra/solana-gpt-plugin
 ## Got approved!
 plugin link
 https://chat.openai.com/?model=text-davinci-002-plugins
+
+## Python examples
+https://chainstack.com/solana-python-tutorial-for-stepn/

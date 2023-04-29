@@ -63,7 +63,11 @@ ai_plugin_content = {
     "description_for_model": "Plugin querying from and sending transactions to the Solana blockchain. Use it when a user wants to create or send Tokens",
     "description_for_human": "Search through your documents.",
     "auth": {
-        "type": "none"
+        "type": "service_http",
+        "authorization_type": "bearer",
+        "verification_tokens": {
+          "openai": "Replace_this_string_with_the_verification_token_generated_in_the_ChatGPT_UI"
+        }
       },
       "api": {
         "type": "openapi",
