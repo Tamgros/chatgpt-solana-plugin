@@ -58,8 +58,8 @@ settings = Settings()
 
 ai_plugin_content = {
     "schema_version": "v1",
-    "name_for_model": "Solana transcaction",
-    "name_for_human": "Solana Plugin",
+    "name_for_model": "Solana_Transcaction",
+    "name_for_human": "Solana_Plugin",
     "description_for_model": "Plugin querying from and sending transactions to the Solana blockchain. Use it when a user wants to create or send Tokens",
     "description_for_human": "Search through your documents.",
     "auth": {
