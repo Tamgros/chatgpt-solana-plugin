@@ -31,3 +31,4 @@ https://chat.openai.com/?model=text-davinci-002-plugins
 
 ## Python examples
 https://chainstack.com/solana-python-tutorial-for-stepn/
+https://github.com/solana-labs/chatgpt-plugin/blob/master/langchain_examples/python/main.py
