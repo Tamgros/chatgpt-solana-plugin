@@ -8,7 +8,7 @@ poetry run dev
 ## To end process
 ps -ef|grep python
 or
-sudo lsof -i:333
+sudo lsof -i:3333
 
 
 pkill -9 <pid>
